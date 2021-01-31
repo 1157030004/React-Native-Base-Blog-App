@@ -40,6 +40,16 @@ const IndexScreen = ({ navigation }) => {
 
 export default IndexScreen;
 
+IndexScreen.navigationOptions = ({ navigation }) => {
+	return {
+		headerRight: () => (
+			<TouchableOpacity onPress={() => navigation.navigate("Create")}>
+				<AntDesign name="plus" size={30} />
+			</TouchableOpacity>
+		),
+	};
+};
+
 const styles = StyleSheet.create({
 	row: {
 		flexDirection: "row",
