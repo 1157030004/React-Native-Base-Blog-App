@@ -25,6 +25,13 @@ const BlogPostForm = ({ onSubmit, initialValues }) => {
 
 export default BlogPostForm;
 
+BlogPostForm.defaultProps = {
+	initialValues: {
+		title: "",
+		content: "",
+	},
+};
+
 const styles = StyleSheet.create({
 	input: {
 		fontSize: 18,
