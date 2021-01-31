@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 
-const BlogPostForm = () => {
-    const [title, setTitle] = useState("");
+const BlogPostForm = ({ onSubmit }) => {
+	const [title, setTitle] = useState("");
 	const [content, setContent] = useState("");
 	return (
 		<View>
@@ -18,9 +18,7 @@ const BlogPostForm = () => {
 				value={content}
 				onChangeText={(text) => setContent(text)}
 			/>
-			<Button
-				title="Publish"
-			/>
+			<Button onPress={() => onSubmit(title, content)} title="Publish" />
 		</View>
 	);
 };
@@ -28,7 +26,7 @@ const BlogPostForm = () => {
 export default BlogPostForm;
 
 const styles = StyleSheet.create({
-    input: {
+	input: {
 		fontSize: 18,
 		borderWidth: 1,
 		borderColor: "gray",
