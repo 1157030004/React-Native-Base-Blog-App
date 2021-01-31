@@ -1,51 +1,13 @@
-import React, { useState, useContext } from "react";
-import { StyleSheet, Text, View, TextInput, Button } from "react-native";
+import React, { useContext } from "react";
+import { StyleSheet } from "react-native";
 import { Context } from "../context/BlogContext";
+import BlogPostForm from "../Components/BlogPostForm";
 
 const CreateScreen = ({ navigation }) => {
-	const [title, setTitle] = useState("");
-	const [content, setContent] = useState("");
 	const { addBlogPost } = useContext(Context);
-	return (
-		<View>
-			<Text style={styles.label}>Your Title</Text>
-			<TextInput
-				style={styles.input}
-				value={title}
-				onChangeText={(text) => setTitle(text)}
-			/>
-			<Text style={styles.label}>Your Content</Text>
-			<TextInput
-				style={styles.input}
-				value={content}
-				onChangeText={(text) => setContent(text)}
-			/>
-			<Button
-				title="Publish"
-				onPress={() => {
-					addBlogPost(title, content, () => {
-						navigation.navigate("Index");
-					});
-				}}
-			/>
-		</View>
-	);
+	return <BlogPostForm />;
 };
 
 export default CreateScreen;
 
-const styles = StyleSheet.create({
-	input: {
-		fontSize: 18,
-		borderWidth: 1,
-		borderColor: "gray",
-		marginBottom: 15,
-		padding: 5,
-		margin: 5,
-	},
-	label: {
-		fontSize: 20,
-		marginBottom: 5,
-		marginLeft: 5,
-	},
-});
+const styles = StyleSheet.create({});
