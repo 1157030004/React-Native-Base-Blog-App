@@ -25,7 +25,7 @@ const blogReducer = (state, action) => {
 	}
 };
 
-const getBlogPosts = () => {
+const getBlogPosts = (dispatch) => {
 	return async () => {
 		const response = await jsonServer.get("/blogposts");
 
